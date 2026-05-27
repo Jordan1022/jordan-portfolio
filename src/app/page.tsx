@@ -2,6 +2,7 @@ type Project = {
   title: string;
   label: string;
   summary: string;
+  subtitle?: string;
   role: string;
   stack: string[];
   points: string[];
@@ -47,8 +48,10 @@ const strengths = [
 
 const projects: Project[] = [
   {
-    title: "Field-Tested AI Sales iOS App",
+    title: "AI-Assisted Sales iOS App",
     label: "Anonymized NDA Case Study",
+    subtitle:
+      "Real-time call transcription, document parsing, and contract-field matching for sales teams.",
     summary:
       "Led architecture and development of a fully functional AI-assisted sales iOS app that combined telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
     role: "Lead Engineer / Architect",
@@ -70,7 +73,7 @@ const projects: Project[] = [
       "Built the iOS app, backend, AI/transcription flow, telephony integration, and notifications",
       "Revised the call-stream architecture after early testing showed lifecycle/hangup issues",
       "Worked through noisy transcription data and short audio chunk parsing",
-      "Delivered a field-tested app that received very strong client feedback",
+      "Delivered a field-tested, production-ready MVP with strong stakeholder response",
     ],
     context:
       "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without adding unnecessary overhead for agents.",
@@ -82,7 +85,7 @@ const projects: Project[] = [
       "NDA constraints required keeping the demo abstract while still proving the technical system.",
     ],
     outcome:
-      "The team delivered a fully functional, field-tested iOS app that received very strong client feedback.",
+      "Delivered a field-tested, production-ready MVP that combined iOS, telephony, AI transcription, document parsing, and structured field matching. Stakeholders responded strongly to the result and discussed production rollout before the project was paused for business reasons.",
     visual: "sales",
   },
   {
@@ -190,6 +193,19 @@ const projects: Project[] = [
   },
 ];
 
+const resumeLinks = [
+  {
+    title: "Senior Software Engineer Resume",
+    description: "best for senior IC/full-stack roles",
+    href: "/resumes/Senior_Full_Stack_PDF_3_10_26.pdf",
+  },
+  {
+    title: "Lead Software Engineer Resume",
+    description: "best for technical lead, architect, or team-lead-leaning roles",
+    href: "/resumes/Technical_Lead_PDF_3_10_26.pdf",
+  },
+];
+
 const contactLinks = [
   {
     label: "Email",
@@ -206,16 +222,6 @@ const contactLinks = [
     value: "jordan-allen-gd",
     href: "https://www.linkedin.com/in/jordan-allen-gd/",
   },
-  {
-    label: "Senior Full-Stack Résumé",
-    value: "PDF",
-    href: "/resumes/Senior_Full_Stack_PDF_3_10_26.pdf",
-  },
-  {
-    label: "Technical Lead Résumé",
-    value: "PDF",
-    href: "/resumes/Technical_Lead_PDF_3_10_26.pdf",
-  },
 ];
 
 function Badge({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "dark" }) {
@@ -223,8 +229,8 @@ function Badge({ children, tone = "neutral" }: { children: React.ReactNode; tone
     <span
       className={
         tone === "dark"
-          ? "inline-flex items-center border border-white/14 bg-white/7 px-3 py-1 text-xs font-medium text-slate-200"
-          : "inline-flex items-center border border-[#d6d1c6] bg-[#f7f5ef] px-3 py-1 text-xs font-medium text-[#445156]"
+          ? "inline-flex max-w-full items-center whitespace-normal border border-white/14 bg-white/7 px-3 py-1 text-left text-xs font-medium leading-snug text-slate-200"
+          : "inline-flex max-w-full items-center whitespace-normal border border-[#d6d1c6] bg-[#f7f5ef] px-3 py-1 text-left text-xs font-medium leading-snug text-[#445156]"
       }
     >
       {children}
@@ -364,6 +370,9 @@ function ProjectVisual({ type }: { type: Project["visual"] }) {
     <div className="space-y-5">
       {/* Replace with real Laundry Co. screenshots or a demo still when final assets are ready. */}
       <div className="border border-[#d6d1c6] bg-white p-4">
+        <p className="mb-4 text-sm leading-6 text-[#4e575c]">
+          Screenshots and a product walkthrough can be added here to show the live scheduling workflow used by managers and staff.
+        </p>
         <div className="mb-3 flex items-center justify-between">
           <div className="h-3 w-28 bg-[#d9d5cb]" />
           <div className="h-3 w-16 bg-[#c7d7dc]" />
@@ -404,6 +413,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <h3 className="text-2xl font-semibold tracking-tight text-[#111517] md:text-3xl">
           {project.title}
         </h3>
+        {project.subtitle ? (
+          <p className="mt-3 text-sm font-semibold leading-6 text-[#476a75]">{project.subtitle}</p>
+        ) : null}
         <p className="mt-4 text-base leading-7 text-[#4e575c]">{project.summary}</p>
         <ul className="mt-6 grid gap-2">
           {project.points.slice(0, 4).map((point) => (
@@ -456,7 +468,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
             <div>
               <h4>Stack</h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap items-start gap-x-2 gap-y-2">
                 {project.stack.map((item) => (
                   <Badge key={item}>{item}</Badge>
                 ))}
@@ -483,16 +495,20 @@ export default function Home() {
           <a href="#top" className="text-sm font-semibold text-white">
             Jordan Allen
           </a>
-          <div className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-            <a className="hover:text-white" href="#work">
-              Work
-            </a>
-            <a className="hover:text-white" href="#approach">
-              Approach
-            </a>
-            <a className="hover:text-white" href="#contact">
-              Contact
-            </a>
+          <div className="hidden items-center gap-3 text-sm text-slate-300 md:flex">
+            {[
+              ["Work", "#work"],
+              ["Approach", "#approach"],
+              ["Resumes", "#resumes"],
+              ["Contact", "#contact"],
+            ].map(([label, href], index, links) => (
+              <span key={label} className="inline-flex items-center gap-3">
+                <a className="hover:text-white" href={href}>
+                  {label}
+                </a>
+                {index < links.length - 1 ? <span className="text-slate-600">·</span> : null}
+              </span>
+            ))}
           </div>
         </nav>
       </header>
@@ -524,10 +540,10 @@ export default function Home() {
                 Contact Me
               </a>
               <a
-                href="#contact"
+                href="#resumes"
                 className="border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/45"
               >
-                Résumés
+                View Resumes
               </a>
             </div>
           </div>
@@ -583,6 +599,32 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resumes" className="scroll-mt-24 border-b border-[#d9d5cb] bg-[#f8f6f1] py-16 md:py-24">
+        <div className="shell">
+          <SectionHeading
+            title="Resumes"
+            copy="Two versions are available depending on the role focus."
+          />
+          <div className="grid gap-4 md:grid-cols-2">
+            {resumeLinks.map((resume) => (
+              <a
+                key={resume.title}
+                href={resume.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group border border-[#d9d5cb] bg-white p-6 transition hover:border-[#476a75]"
+              >
+                <h3 className="text-xl font-semibold tracking-tight text-[#111517]">{resume.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5f676d]">{resume.description}</p>
+                <span className="mt-6 inline-flex text-sm font-semibold text-[#476a75] group-hover:text-[#2f535e]">
+                  View PDF
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
