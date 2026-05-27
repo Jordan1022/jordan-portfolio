@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f3ef;
+  --foreground: #151719;
+  --muted: #5f676d;
+  --line: #d9d5cb;
+  --surface: #ffffff;
+  --surface-strong: #ece8df;
+  --ink: #101316;
+  --accent: #476a75;
+  --accent-strong: #2f535e;
+  --dark: #101416;
+  --dark-muted: #aeb8bb;
+  --font-sans-local: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono-local: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans-local);
+  --font-mono: var(--font-mono-local);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans-local);
+  letter-spacing: 0;
+}
+
+::selection {
+  background: #c8d8dd;
+  color: var(--ink);
+}
+
+a {
+  text-underline-offset: 4px;
+}
+
+.shell {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.case-study-body {
+  display: grid;
+  gap: 20px;
+}
+
+.project-card,
+.project-card * {
+  min-width: 0;
+}
+
+.case-study-body h4 {
+  margin-bottom: 8px;
+  color: #111517;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study-body p,
+.case-study-body li {
+  color: #4e575c;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.case-study-body ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.case-study-body li + li {
+  margin-top: 6px;
+}
+
+.diagram-node {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(71, 106, 117, 0.22);
+  background: rgba(255, 255, 255, 0.72);
+  color: #27353a;
+  font-family: var(--font-mono-local);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.diagram-connector {
+  height: 1px;
+  background: rgba(71, 106, 117, 0.35);
+}
+
+@media (max-width: 720px) {
+  .shell {
+    width: min(100% - 28px, 1160px);
+  }
+}
