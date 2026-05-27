@@ -47,10 +47,10 @@ const strengths = [
 
 const projects: Project[] = [
   {
-    title: "AI-Assisted Sales Workflow Prototype",
+    title: "Near-Production AI Sales Workflow",
     label: "Anonymized NDA Case Study",
     summary:
-      "Led architecture and development of an AI-assisted sales workflow prototype that combined iOS, telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
+      "Led architecture and development of a near-production AI-assisted sales workflow product that combined iOS, telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
     role: "Lead Engineer / Architect",
     stack: [
       "SwiftUI",
@@ -70,7 +70,7 @@ const projects: Project[] = [
       "Built the iOS app, backend, AI/transcription flow, telephony integration, and notifications",
       "Revised the call-stream architecture after early testing showed lifecycle/hangup issues",
       "Worked through noisy transcription data and short audio chunk parsing",
-      "Delivered a near-production MVP/demo that was field-tested and received very strong client feedback",
+      "Delivered a fully functional, near-production product that was field-tested and received very strong client feedback",
     ],
     context:
       "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without exposing the agent to unnecessary workflow overhead.",
@@ -78,11 +78,11 @@ const projects: Project[] = [
       "I kept the architecture explicit: mobile app state, voice stream handling, transcription, extraction, field matching, and feedback were treated as separate concerns with clear failure modes and practical observability.",
     challenges: [
       "Early call lifecycle behavior exposed hangup and stream edge cases that required a revised integration path.",
-      "Short audio chunks and noisy transcripts needed conservative parsing so the prototype stayed useful in real calls.",
+      "Short audio chunks and noisy transcripts needed conservative parsing so the product stayed useful in real calls.",
       "NDA constraints required keeping the demo abstract while still proving the technical workflow.",
     ],
     outcome:
-      "The team delivered a near-production MVP/demo that was field-tested and received very strong client feedback.",
+      "The team delivered a fully functional, near-production product that was field-tested and received very strong client feedback.",
     visual: "sales",
   },
   {
