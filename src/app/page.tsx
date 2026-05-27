@@ -47,10 +47,10 @@ const strengths = [
 
 const projects: Project[] = [
   {
-    title: "Near-Production AI Sales Workflow",
+    title: "Near-Production AI Sales iOS App",
     label: "Anonymized NDA Case Study",
     summary:
-      "Led architecture and development of a near-production AI-assisted sales workflow product that combined iOS, telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
+      "Led architecture and development of a near-production AI-assisted sales iOS app that combined telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
     role: "Lead Engineer / Architect",
     stack: [
       "SwiftUI",
@@ -73,13 +73,13 @@ const projects: Project[] = [
       "Delivered a fully functional, near-production product that was field-tested and received very strong client feedback",
     ],
     context:
-      "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without exposing the agent to unnecessary workflow overhead.",
+      "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without adding unnecessary overhead for agents.",
     approach:
       "I kept the architecture explicit: mobile app state, voice stream handling, transcription, extraction, field matching, and feedback were treated as separate concerns with clear failure modes and practical observability.",
     challenges: [
       "Early call lifecycle behavior exposed hangup and stream edge cases that required a revised integration path.",
       "Short audio chunks and noisy transcripts needed conservative parsing so the product stayed useful in real calls.",
-      "NDA constraints required keeping the demo abstract while still proving the technical workflow.",
+      "NDA constraints required keeping the demo abstract while still proving the technical system.",
     ],
     outcome:
       "The team delivered a fully functional, near-production product that was field-tested and received very strong client feedback.",
