@@ -47,10 +47,10 @@ const strengths = [
 
 const projects: Project[] = [
   {
-    title: "Near-Production AI Sales iOS App",
+    title: "Field-Tested AI Sales iOS App",
     label: "Anonymized NDA Case Study",
     summary:
-      "Led architecture and development of a near-production AI-assisted sales iOS app that combined telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
+      "Led architecture and development of a fully functional AI-assisted sales iOS app that combined telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
     role: "Lead Engineer / Architect",
     stack: [
       "SwiftUI",
@@ -70,7 +70,7 @@ const projects: Project[] = [
       "Built the iOS app, backend, AI/transcription flow, telephony integration, and notifications",
       "Revised the call-stream architecture after early testing showed lifecycle/hangup issues",
       "Worked through noisy transcription data and short audio chunk parsing",
-      "Delivered a fully functional, near-production product that was field-tested and received very strong client feedback",
+      "Delivered a field-tested app that received very strong client feedback",
     ],
     context:
       "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without adding unnecessary overhead for agents.",
@@ -82,7 +82,7 @@ const projects: Project[] = [
       "NDA constraints required keeping the demo abstract while still proving the technical system.",
     ],
     outcome:
-      "The team delivered a fully functional, near-production product that was field-tested and received very strong client feedback.",
+      "The team delivered a fully functional, field-tested iOS app that received very strong client feedback.",
     visual: "sales",
   },
   {
