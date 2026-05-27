@@ -342,7 +342,7 @@ function ProjectVisual({ type }: { type: Project["visual"] }) {
         <div className="grid grid-cols-[1fr_32px_1fr] items-center gap-3">
           <div className="diagram-node">Spreadsheet</div>
           <div className="diagram-connector" />
-          <div className="diagram-node">Tested Web App</div>
+          <div className="diagram-node">Full-Stack App</div>
         </div>
         <div className="border border-[#d6d1c6] bg-white p-4">
           <div className="mb-3 h-3 w-28 bg-[#d9d5cb]" />
