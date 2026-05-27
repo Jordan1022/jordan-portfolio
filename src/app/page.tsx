@@ -190,6 +190,34 @@ const projects: Project[] = [
   },
 ];
 
+const contactLinks = [
+  {
+    label: "Email",
+    value: "jordan@goodlydevelopment.com",
+    href: "mailto:jordan@goodlydevelopment.com",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/Jordan1022",
+    href: "https://github.com/Jordan1022",
+  },
+  {
+    label: "LinkedIn",
+    value: "jordan-allen-gd",
+    href: "https://www.linkedin.com/in/jordan-allen-gd/",
+  },
+  {
+    label: "Senior Full-Stack Résumé",
+    value: "PDF",
+    href: "/resumes/Senior_Full_Stack_PDF_3_10_26.pdf",
+  },
+  {
+    label: "Technical Lead Résumé",
+    value: "PDF",
+    href: "/resumes/Technical_Lead_PDF_3_10_26.pdf",
+  },
+];
+
 function Badge({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "dark" }) {
   return (
     <span
@@ -499,7 +527,7 @@ export default function Home() {
                 href="#contact"
                 className="border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/45"
               >
-                Résumé
+                Résumés
               </a>
             </div>
           </div>
@@ -568,19 +596,16 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              ["Email", "Placeholder"],
-              ["GitHub", "Placeholder"],
-              ["LinkedIn", "Placeholder"],
-              ["Résumé", "Placeholder"],
-            ].map(([label, value]) => (
+            {contactLinks.map((link) => (
               <a
-                key={label}
-                href="#"
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") || link.href.endsWith(".pdf") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") || link.href.endsWith(".pdf") ? "noreferrer" : undefined}
                 className="flex items-center justify-between border border-[#d9d5cb] bg-white px-5 py-4 text-sm font-semibold text-[#111517] transition hover:border-[#476a75]"
               >
-                <span>{label}</span>
-                <span className="font-normal text-[#6d777c]">{value}</span>
+                <span>{link.label}</span>
+                <span className="font-normal text-[#6d777c]">{link.value}</span>
               </a>
             ))}
           </div>
