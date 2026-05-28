@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Project = {
   title: string;
   label: string;
@@ -547,7 +549,21 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <HeroDiagram />
+          <div className="grid gap-5">
+            <div className="flex justify-start md:justify-end">
+              <div className="overflow-hidden border border-white/12 bg-white/[0.045] p-2 shadow-2xl shadow-black/20">
+                <Image
+                  src="/profile/bwprofile.png"
+                  alt="Jordan Allen"
+                  width={320}
+                  height={320}
+                  priority
+                  className="aspect-square w-40 object-cover sm:w-52 md:w-56"
+                />
+              </div>
+            </div>
+            <HeroDiagram />
+          </div>
         </div>
       </section>
 
