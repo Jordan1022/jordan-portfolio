@@ -2,6 +2,7 @@ type Project = {
   title: string;
   label: string;
   summary: string;
+  subtitle?: string;
   role: string;
   stack: string[];
   points: string[];
@@ -39,10 +40,12 @@ const strengths = [
 
 const projects: Project[] = [
   {
-    title: "AI-Assisted Sales Workflow Prototype",
+    title: "AI-Assisted Sales iOS App",
     label: "Anonymized NDA Case Study",
+    subtitle:
+      "Real-time call transcription, document parsing, and contract-field matching for sales teams.",
     summary:
-      "Led architecture and development of an AI-assisted sales workflow prototype that combined iOS, telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
+      "Led architecture and development of a fully functional AI-assisted sales iOS app that combined telephony, real-time transcription, document parsing, and structured field matching to help agents capture contract-relevant information during live calls.",
     role: "Lead Engineer / Architect",
     stack: [
       "SwiftUI",
@@ -62,19 +65,19 @@ const projects: Project[] = [
       "Built the iOS app, backend, AI/transcription flow, telephony integration, and notifications",
       "Revised the call-stream architecture after early testing showed lifecycle/hangup issues",
       "Worked through noisy transcription data and short audio chunk parsing",
-      "Delivered a near-production MVP/demo that was field-tested and received very strong client feedback",
+      "Delivered a field-tested, production-ready MVP with strong stakeholder response",
     ],
     context:
-      "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without exposing the agent to unnecessary workflow overhead.",
+      "The work needed to connect live call behavior, mobile UX, AI transcription, document parsing, and structured business data without adding unnecessary overhead for agents.",
     approach:
       "I kept the architecture explicit: mobile app state, voice stream handling, transcription, extraction, field matching, and feedback were treated as separate concerns with clear failure modes and practical observability.",
     challenges: [
       "Early call lifecycle behavior exposed hangup and stream edge cases that required a revised integration path.",
-      "Short audio chunks and noisy transcripts needed conservative parsing so the prototype stayed useful in real calls.",
-      "NDA constraints required keeping the demo abstract while still proving the technical workflow.",
+      "Short audio chunks and noisy transcripts needed conservative parsing so the product stayed useful in real calls.",
+      "NDA constraints required keeping the demo abstract while still proving the technical system.",
     ],
     outcome:
-      "The team delivered a near-production MVP/demo that was field-tested and received very strong client feedback.",
+      "Delivered a field-tested, production-ready MVP that combined iOS, telephony, AI transcription, document parsing, and structured field matching. Stakeholders responded strongly to the result and discussed production rollout before the project was paused for business reasons.",
     visual: "sales",
     artifactTitle: "Live call intelligence pipeline",
     evidence: "Field-tested MVP",
@@ -187,6 +190,37 @@ const projects: Project[] = [
     visual: "scheduler",
     artifactTitle: "Operational scheduling surface",
     evidence: "Used by the team",
+  },
+];
+
+const resumeLinks = [
+  {
+    title: "Senior Software Engineer Resume",
+    description: "Best for senior IC and full-stack roles.",
+    href: "/resumes/Senior_Full_Stack_PDF_3_10_26.pdf",
+  },
+  {
+    title: "Lead Software Engineer Resume",
+    description: "Best for technical lead, architect, or team-lead-leaning roles.",
+    href: "/resumes/Technical_Lead_PDF_3_10_26.pdf",
+  },
+];
+
+const contactLinks = [
+  {
+    label: "Email",
+    value: "jordan@goodlydevelopment.com",
+    href: "mailto:jordan@goodlydevelopment.com",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/Jordan1022",
+    href: "https://github.com/Jordan1022",
+  },
+  {
+    label: "LinkedIn",
+    value: "jordan-allen-gd",
+    href: "https://www.linkedin.com/in/jordan-allen-gd/",
   },
 ];
 
@@ -469,6 +503,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <h3 className="text-2xl font-semibold tracking-tight text-[#111517] md:text-4xl md:leading-tight">
           {project.title}
         </h3>
+        {project.subtitle ? (
+          <p className="mt-4 text-sm font-semibold leading-6 text-[#476a75]">
+            {project.subtitle}
+          </p>
+        ) : null}
         <p className="mt-5 text-base leading-7 text-[#4e575c]">{project.summary}</p>
         <ul className="mt-7 grid gap-3">
           {project.points.slice(0, 4).map((point) => (
@@ -550,6 +589,9 @@ export default function Home() {
             <a className="transition hover:text-white" href="#approach">
               Approach
             </a>
+            <a className="transition hover:text-white" href="#resumes">
+              Resumes
+            </a>
             <a className="transition hover:text-white" href="#contact">
               Contact
             </a>
@@ -572,13 +614,17 @@ export default function Home() {
             <p className="mt-7 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
               I design and build software for complex workflows: AI-assisted sales tools, healthcare scheduling platforms, specialized design calculators, and operational systems used by real teams.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="hero-actions mt-10">
               <a href="#work" className="button button-primary">
                 <span>View selected work</span>
                 <ArrowIcon />
               </a>
               <a href="#contact" className="button button-secondary">
                 <span>Contact</span>
+                <ArrowIcon />
+              </a>
+              <a href="#resumes" className="button button-secondary">
+                <span>Resumes</span>
                 <ArrowIcon />
               </a>
             </div>
@@ -647,8 +693,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="section-band contact-section">
-        <div className="shell contact-grid">
+      <section className="section-band contact-section">
+        <div id="resumes" className="shell resume-shell">
+          <SectionHeading
+            eyebrow="Resumes"
+            title="Two resume versions for different role conversations."
+            copy="Use the senior full-stack version for IC/product engineering roles and the lead version for technical lead, architect, or team-lead-leaning roles."
+          />
+          <div className="resume-grid">
+            {resumeLinks.map((resume) => (
+              <a key={resume.title} href={resume.href} target="_blank" rel="noreferrer">
+                <span>{resume.title}</span>
+                <p>{resume.description}</p>
+                <strong>
+                  View PDF
+                  <ArrowIcon />
+                </strong>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div id="contact" className="shell contact-grid">
           <div>
             <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#476a75]">
               Contact / links
@@ -661,15 +727,15 @@ export default function Home() {
             </p>
           </div>
           <div className="link-panel">
-            {[
-              ["Email", "Placeholder"],
-              ["GitHub", "Placeholder"],
-              ["LinkedIn", "Placeholder"],
-              ["Resume", "Placeholder"],
-            ].map(([label, value]) => (
-              <a key={label} href="#">
-                <span>{label}</span>
-                <strong>{value}</strong>
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+              >
+                <span>{link.label}</span>
+                <strong>{link.value}</strong>
                 <ArrowIcon />
               </a>
             ))}

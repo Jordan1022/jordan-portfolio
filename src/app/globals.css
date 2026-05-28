@@ -124,6 +124,12 @@ summary::-webkit-details-marker {
   border-color: rgba(255, 255, 255, 0.45);
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .hero-artifacts {
   min-width: 0;
 }
@@ -674,6 +680,56 @@ summary::-webkit-details-marker {
   background: #f8f6f1;
 }
 
+.resume-shell,
+.contact-grid {
+  scroll-margin-top: 96px;
+}
+
+.resume-shell {
+  margin-bottom: 72px;
+}
+
+.resume-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.resume-grid a {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  background: white;
+  padding: 22px;
+  color: #111517;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.resume-grid a:hover {
+  border-color: var(--accent);
+  background: #f4f7f7;
+}
+
+.resume-grid span {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.resume-grid p {
+  margin: 0;
+  color: #5f676d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.resume-grid strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
 .contact-grid {
   display: grid;
   gap: 40px;
@@ -759,6 +815,10 @@ summary::-webkit-details-marker {
   .contact-grid {
     grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.75fr);
   }
+
+  .resume-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 859px) {
@@ -806,6 +866,15 @@ summary::-webkit-details-marker {
 
   .button {
     width: 100%;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-actions .button-primary {
+    grid-column: 1 / -1;
   }
 
   .map-canvas,
