@@ -375,7 +375,7 @@ function HeroArtifacts() {
           <p className="artifact-title">Selected outcomes</p>
           {[
             "Healthcare scheduling platform",
-            "AI-assisted sales workflow",
+            "AI-assisted sales iOS app",
             "Design calculator suite",
           ].map((item) => (
             <div key={item} className="artifact-row">
