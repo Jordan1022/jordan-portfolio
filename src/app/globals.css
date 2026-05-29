@@ -86,6 +86,18 @@ summary::-webkit-details-marker {
   z-index: 2;
 }
 
+.hero-profile-image {
+  display: block;
+  height: 136px;
+  width: 136px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: #d9d5cb;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.28);
+  object-fit: cover;
+}
+
 .button {
   display: inline-flex;
   min-height: 48px;
@@ -849,6 +861,12 @@ summary::-webkit-details-marker {
 
   .hero-copy h1 {
     font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .hero-profile-image {
+    height: 112px;
+    width: 112px;
+    margin-bottom: 24px;
   }
 
   .hero-copy p:nth-of-type(2) {

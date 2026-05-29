@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Project = {
   title: string;
   label: string;
@@ -602,6 +604,14 @@ export default function Home() {
       <section id="top" className="hero-section">
         <div className="shell hero-grid">
           <div className="hero-copy">
+            <Image
+              src="/profile/bwprofile.png"
+              alt="Jordan Allen"
+              width={136}
+              height={136}
+              priority
+              className="hero-profile-image"
+            />
             <p className="font-mono text-sm font-semibold uppercase tracking-[0.16em] text-[#b6cbd1]">
               Senior Full-Stack Engineer & Technical Lead
             </p>
@@ -697,8 +707,8 @@ export default function Home() {
         <div id="resumes" className="shell resume-shell">
           <SectionHeading
             eyebrow="Resumes"
-            title="Two resume versions for different role conversations."
-            copy="Use the senior full-stack version for IC/product engineering roles and the lead version for technical lead, architect, or team-lead-leaning roles."
+            title="Resume versions tailored to senior engineering and technical leadership roles."
+            copy="Each PDF highlights a different angle of the same experience: senior full-stack product engineering, or technical leadership across architecture, planning, and delivery."
           />
           <div className="resume-grid">
             {resumeLinks.map((resume) => (
