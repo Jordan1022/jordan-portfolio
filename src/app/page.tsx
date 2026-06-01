@@ -754,9 +754,19 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-[#d9d5cb] py-8">
-        <div className="shell flex flex-col gap-3 text-sm text-[#6d777c] md:flex-row md:items-center md:justify-between">
+        <div className="shell flex flex-col gap-4 text-sm text-[#6d777c] md:flex-row md:items-center md:justify-between">
           <p>© 2026 Jordan Allen.</p>
-          <p>Senior Full-Stack Engineer & Technical Lead</p>
+          <div className="flex flex-col gap-2 md:items-end">
+            <p>Senior Full-Stack Engineer & Technical Lead</p>
+            <div className="flex flex-wrap gap-x-5 gap-y-1">
+              <a className="transition hover:text-[#244f5a]" href="/privacy">
+                Privacy Policy
+              </a>
+              <a className="transition hover:text-[#244f5a]" href="/terms">
+                Terms of Service
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
