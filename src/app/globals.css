@@ -544,44 +544,32 @@ summary::-webkit-details-marker {
 .visual-scheduler {
   border: 1px solid rgba(71, 106, 117, 0.18);
   background: white;
-  padding: 14px;
+  padding: 8px;
 }
 
-.schedule-toolbar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
+.scheduler-screenshot-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
-.schedule-toolbar span {
-  height: 10px;
-  width: 90px;
-  background: #d9d5cb;
+.scheduler-screenshot-link:focus-visible {
+  outline: 3px solid #476a75;
+  outline-offset: 3px;
 }
 
-.schedule-toolbar span:last-child {
-  width: 52px;
-  background: #b9d3da;
+.scheduler-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e4dfd4;
+  object-fit: contain;
+  transition: border-color 180ms ease, filter 180ms ease;
 }
 
-.schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 4px;
-}
-
-.schedule-grid div {
-  aspect-ratio: 1.08;
-  border: 1px solid #e1ddd3;
-  background: #f8f6f1;
-}
-
-.schedule-grid .is-active {
-  background: #c5dde2;
-}
-
-.schedule-grid .is-muted {
-  background: #dfe8c7;
+.scheduler-screenshot-link:hover .scheduler-screenshot {
+  border-color: #476a75;
+  filter: contrast(1.03);
 }
 
 .case-study-details {

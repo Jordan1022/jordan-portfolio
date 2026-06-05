@@ -452,24 +452,22 @@ function CalculatorVisual() {
 function SchedulerVisual() {
   return (
     <div className="visual-scheduler">
-      <div className="schedule-toolbar">
-        <span />
-        <span />
-      </div>
-      <div className="schedule-grid">
-        {Array.from({ length: 35 }).map((_, index) => (
-          <div
-            key={index}
-            className={
-              index % 9 === 0 || index % 13 === 0
-                ? "is-active"
-                : index % 7 === 0
-                  ? "is-muted"
-                  : ""
-            }
-          />
-        ))}
-      </div>
+      <a
+        href="https://schedule.laundryco.store"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open the live Laundry Co. scheduler"
+        className="scheduler-screenshot-link"
+      >
+        <Image
+          src="/projects/laundry-scheduler-main-screen.png"
+          alt="Laundry Co. scheduler main screen showing the weekly schedule and bulletin board"
+          width={3359}
+          height={1858}
+          sizes="(min-width: 860px) 34vw, calc(100vw - 92px)"
+          className="scheduler-screenshot"
+        />
+      </a>
     </div>
   );
 }
